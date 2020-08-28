@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>吴欣玥JS结课答辩</title>
+	    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/process.css">
+    	<style>
+#cont {
+margin-top:30px;
+
+    width: 400px;
+    height: 400px;
+    border:1px solid black;
+    position: relative;
+    overflow: hidden;
+
+}
+
+#main {
+    width: 400px;
+    height: 500px;
+    position: relative;
+    top:-100px;
+    display: inline;
+}
+
+.row {
+    height: 100px;
+}
+
+.row div {
+    width: 100px;
+    height: 100px;
+    /*border:1px solid gray;*/
+    float: left;
+}
+
+.black {
+    background: black;
+     /*border: 1px solid grey;*/
+    height: 98px;
+    width: 98px;
+        float: left;
+
+}
+
+
+.bai{
+    background: red;
+    float: left;
+    height: 98px;
+    width: 98px;
+    /*border: 1px solid blue;*/
+}
+
+
+
+#main {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    top:-100px;
+}
+</style>
+    <style type="text/css">
+.box_bg{
+	width: 100%;
+	height: 100%;
+}
+#tx{
+	margin: 0px 0px 0px 0px;
+	position: relative;
+	top: 200px;
+	display: inline;
+	color: white;
+	/*border: 1px solid blue;*/
+	/*width: 2000px;*/
+	width: 200px;
+}
+
+#tx2{
+	margin: 0px 0px 0px 0px;
+	position: relative;
+	top: 200px;
+	display: inline;
+	color: white;
+	/*border: 1px solid blue;*/
+	/*width: 2000px;*/
+	font-size: 15px;
+	/*font-weight:20px;*/
+	
+}
+
+.box01_content .title {
+	margin-top: -135px;
+}
+
+
+/*style="width: 3440px; height: 1440px; top: -45px; left: 0px;"*/
+</style>
+</head>
+<body>
+	  <div class="wrapBox" id="wrapBox" style="top: 0px;">
+        <div class="box">
+            <img class="box_bg" src="http://wl.aidezy.com/2019061511594534515322.jpg" href="http://wpa.qq.com/msgrd?v=3&uin=466661699&site=qq&menu=yes" >
+            <div class="box01_content">
+                <div class="head_div">
+                    <div class="cycle_item">
+                  
+<!-- <h1 style="display: inline;">自动提交百度收录:</h1> -->
+                  <!-- <h1 id="tx"><span id="jx">3</span>&nbsp;&nbsp;秒正在检测域名合法性...</h1> -->
+    <h2 style="display: inline;">你的分数:<h2 id="sc" style="display: inline;">0</h2></h2>
+    
+    <div id="cont">
+<div id="main">
+
+
+
+</div>
+
+    </div>
+                    </div>
+ 
+                </div>
+                <h1 class="title">@author:&nbsp;' 无陌然</h1>
+                <h2 class="title_h2">黑白方块.</h2>
+                <div id="box01_text">
+                <p class="box01_p" style="opacity: 1;">世间悠迹.</p>
+                <p class="box01_p" style="opacity: 1;">陌路可随. </p>
+                </div>
+            </div>
+           
+        </div>
+        
+        <div class="box">
+            <img class="box_bg" src="./css/pic_2.jpg" style="width: 1920px; height: 1080px; top: -45px; left: 0px;">
+</body>
+
+<script type="text/javascript">
+
+var main = document.getElementById('main');
+
+var cont = document.getElementById('cont');
+var sudu = 3;
+var zt = true;
+// alert(hang);
+// var cont = document.getElementsByClassName('cont');
+
+// var hang = document.getElementById('hang');
+// var div = document.createElement('div');
+// cont.appendChild(div);
+function getStyle(el , attr) {
+    return el.currentStyle ? el.currentStyle[attr] : getComputedStyle(el,null)[attr];
+}
+//创建一个div
+function cdiv(className) {
+    var div = document.createElement('div');    
+    
+    if(className) {
+        div.className = className;    
+    }
+    return div;
+}
+// cdiv('black');
+//创建一行div
+function hdiv(){
+    var ind = Math.floor(Math.random()*4);
+    var row = cdiv('row');
+    // hdiv.appendChild(cdiv('black'));
+    for (var i = 0; i <4; i++) {
+        if (ind == i) {
+             row.appendChild(cdiv('black'));
+        }else{
+              row.appendChild(cdiv());
+        }
+    }
+    // if(main.firstChild) {
+    //     main.insertBefore(row , main.firstChild);
+    // }else {
+    //     main.appendChild(row);
+    // }
+
+        if (main.firstChild) {
+            main.insertBefore(row , main.firstChild);
+        }else{
+             main.appendChild(row);
+        }
+}
+function move(){
+        var top = getStyle(main , 'top');
+    var top = parseInt(top) + sudu;
+    main.style.top = top + 'px';
+    if (top > 0 ) {
+         hdiv();
+         main.style.top = '-100px';
+          // 判断最后一行是否含有黑块
+        if(main.lastChild.pass == undefined) {
+            if (main.lastChild.className) {
+
+      
+            clearInterval(ting);
+        
+            alert('输了');
+                 zt = false;
+    }
+        }
+
+    }
+
+    if (main.children.length > 4) {
+
+        main.removeChild(main.lastChild);
+       
+    }
+
+}
+function init(){
+    // console.log(ev);
+        hdiv();
+        ting = setInterval('move();',40);
+        cont.onclick = function(ev){
+            // console.log(ev);
+            if (ev.target.id == 'cont') {
+               clearInterval(ting);
+        
+            alert('输了');
+                 zt = false;
+                
+            }
+        }
+        main.onclick = function(ev){
+             ev.target = ev.target || ev.srcElement;
+            if (ev.target.className == '') {
+                    clearInterval(ting);
+                 alert('输了');
+                  zt = false;
+                 // main.style.display = none;
+            }else{
+                if (zt == false) {
+                    alert('不要作弊');
+                    exit();
+                }
+                ev.target.className = '';
+                    // cont.style.height = '400px';
+                // ev.target.style.display = none;
+                // main.removeChild(main.lastChild);
+                 ev.target.parentNode.pass = true;
+                  var score = document.getElementById('sc');
+            var sc = parseInt(score.innerHTML)+1;
+            score.innerHTML = sc;
+            sudu = sudu + 0.2;
+            }
+        }
+}
+    // setInterval('move();',40);
+// alert(hang);
+init();
+</script>
